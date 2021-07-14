@@ -1,1 +1,1 @@
-repository for python exercise in school TeachMeSkills
+repository for python exercise in TeachMeSkills
