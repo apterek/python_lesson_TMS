@@ -1,1 +1,1 @@
-# python_lesson_TMS
+repository for python exercise in school TeachMeSkills
