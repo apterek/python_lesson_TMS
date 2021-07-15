@@ -19,9 +19,9 @@ def exercise_2():
 
 
 def exercise_3():
-    belka = 'a s o u d h g u o a s h d g o s s'
+    belka = 's t r e s s e d'
     belka_spisok = belka.split()
-    belka_str = ''.join(belka_spisok).upper()
+    belka_str = ''.join(belka_spisok[::-1])
     print(belka_str)
 
 
