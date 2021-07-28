@@ -26,7 +26,7 @@ def black_jack():
     while True:
         pull_card = {}
         last_card = {}
-        # pull card
+        # pull unique card
         while True:
             pull_card = pull_random_card(cards, suits)
             if pull_card == last_card:
