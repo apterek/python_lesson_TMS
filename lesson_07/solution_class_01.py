@@ -14,4 +14,5 @@ def pull_random_card(cards_sequences, suit_sequences):
     return random_card
 
 
-print(pull_random_card(cards, suit))
+if __name__ == '__main__':
+    print(pull_random_card(cards, suit))

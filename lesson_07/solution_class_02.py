@@ -54,6 +54,7 @@ def black_jack():
             return print(f'you score {sum_cards}, game end')
 
 
-black_jack()
+if __name__ == '__main__':
+    black_jack()
 
 
