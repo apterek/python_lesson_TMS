@@ -24,10 +24,10 @@ def black_jack():
     sum_cards = 0
     # Start game
     while True:
-        pull_card = {}
-        last_card = {}
+
         # pull unique card
         while True:
+            last_card = {}
             pull_card = pull_random_card(cards, suits)
             if pull_card == last_card:
                 continue

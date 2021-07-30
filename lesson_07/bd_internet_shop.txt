@@ -1,4 +1,3 @@
-buyer,product,quantity,cost
 Mark,connector,12,3525
 Dima,switch,3,2435
 Pasha,multimeter,5,1235
