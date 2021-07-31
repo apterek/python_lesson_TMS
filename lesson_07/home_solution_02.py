@@ -1,3 +1,5 @@
+from tabulate import tabulate
+
 # columns numbers in table
 values_dict = {'customer': 0, 'product': 1, 'quantity': 2, 'cost': 3}
 
@@ -10,7 +12,8 @@ def make_unique_list(filename, key):
 
 def make_table(filename, main_key, *args):
     args = args[0]  # change a tuple to a list
-    table_dict = {}
+    # only for bd_internet_shop.txt, for other data tables need an empty dictionary
+    table_dict = {'+': ['total sold: ', 'amount sold: ']}
     gen_dict = {}
     for column in make_unique_list(filename, main_key):
         # dictionary for save values of sum
@@ -40,6 +43,8 @@ if __name__ == '__main__':
                         ' that is repeated more than once: ')
     column_for_sum = input('Enter the columns for which'
                            ' you want to get their sum separated by commas: ')
-    print(make_table(filename_in, values_dict.get(main_column),
-                     [values_dict.get(number_of_column)
-                      for number_of_column in column_for_sum.split(',')]))
+    headers_tabulate = [main_column]
+    print(tabulate(make_table(filename_in, values_dict.get(main_column),
+                              [values_dict.get(number_of_column)
+                               for number_of_column in column_for_sum.split(',')]),
+                   headers='keys', tablefmt='grid', stralign='center'))
