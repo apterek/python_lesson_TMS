@@ -6,7 +6,7 @@ name_of_suits = [
 ]
 
 
-def gen_big_deck(number_of_deck):
+def gen_big_deck(number_of_deck=1):
     big_deck = {}
     for card in name_of_cards:
         for suit in name_of_suits:

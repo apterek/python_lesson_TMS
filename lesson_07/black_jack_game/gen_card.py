@@ -3,7 +3,7 @@ import random
 
 def pull_random_card(card_deck):
     cards = [card for card in card_deck]
-    random_card = cards[random.randint(0, len(cards))]
+    random_card = cards[random.randint(0, len(cards) - 1)]
     return random_card
 
 
