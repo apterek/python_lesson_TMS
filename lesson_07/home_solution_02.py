@@ -12,8 +12,10 @@ def make_unique_list(filename, key):
 
 def make_table(filename, main_key, *args):
     args = args[0]  # change a tuple to a list
+    words_dict = {2: 'total sold', 3: 'amount sold'}
+    print(args)
     # only for bd_internet_shop.txt, for other data tables need an empty dictionary
-    table_dict = {'+': ['total sold: ', 'amount sold: ']}
+    table_dict = {'+': [words_dict.get(x) for x in args]}
     gen_dict = {}
     for column in make_unique_list(filename, main_key):
         # dictionary for save values of sum
@@ -42,7 +44,8 @@ if __name__ == '__main__':
     main_column = input('Enter column name with a value'
                         ' that is repeated more than once: ')
     column_for_sum = input('Enter the columns for which'
-                           ' you want to get their sum separated by commas: ')
+                           ' you want to get their sum separated by commas'
+                           '(only columns with the numbers): ')
     headers_tabulate = [main_column]
     print(tabulate(make_table(filename_in, values_dict.get(main_column),
                               [values_dict.get(number_of_column)
