@@ -54,3 +54,25 @@ if __name__ == '__main__':
             break
     table_score = {name: 0 for name in names_of_players}
     game(table_score, deck_with_card)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
