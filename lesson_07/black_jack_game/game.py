@@ -1,8 +1,6 @@
 from gen_deck_cards import gen_big_deck
 from chek_card import check
 
-names_of_players = ['croupier']
-
 
 def game(players_table_score, deck):
     # The first distribution
@@ -46,6 +44,7 @@ def game(players_table_score, deck):
 
 
 if __name__ == '__main__':
+    names_of_players = ['croupier']
     deck_quantity = int(input('Enter deck quantity(1-8): '))
     deck_with_card = gen_big_deck(deck_quantity)
     number_of_player = input("Enter number of players(1-7): ")
