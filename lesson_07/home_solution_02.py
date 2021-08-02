@@ -13,7 +13,6 @@ def make_unique_list(filename, key):
 def make_table(filename, main_key, *args):
     args = args[0]  # change a tuple to a list
     words_dict = {2: 'total sold', 3: 'amount sold'}
-    print(args)
     # only for bd_internet_shop.txt, for other data tables need an empty dictionary
     table_dict = {'+': [words_dict.get(x) for x in args]}
     gen_dict = {}
