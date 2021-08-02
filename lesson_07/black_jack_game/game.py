@@ -1,5 +1,6 @@
 from gen_deck_cards import gen_big_deck
 from chek_card import check
+from output_result_game import print_result
 
 
 def game(players_table_score, deck):
@@ -8,7 +9,8 @@ def game(players_table_score, deck):
         for _ in range(2):
             players_table_score, deck = check(players_table_score, deck, key)
     # Players are playing
-    for key in players_table_score:
+    for key in players_table_score.keys():
+        print(key)
         if key == 'croupier':
             continue
         while True:
@@ -32,15 +34,18 @@ def game(players_table_score, deck):
     while True:
         print(f"croupier take a cards, current score croupier:"
               f" {players_table_score.get('croupier')}")
+        if 18 <= players_table_score.get('croupier') <= 20:
+            print(f"croupier score {players_table_score.get('croupier')}")
+            break
         if players_table_score.get('croupier') == 21:
             print(f"croupier have a BlackJack")
             break
         players_table_score, deck = check(players_table_score, deck, 'croupier')
         if players_table_score.get('croupier') > 21:
-            print(f"croupier take a cards, current score croupier:"
+            print(f"croupier LOSE, too many points:"
                   f" {players_table_score.get('croupier')}")
             break
-    print(players_table_score)
+    print_result(players_table_score)
 
 
 if __name__ == '__main__':
