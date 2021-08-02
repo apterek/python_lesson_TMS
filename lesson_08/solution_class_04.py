@@ -1,6 +1,9 @@
 def numbers(start_number, end_number):
-    print([i for i in range(end_number - start_number)])
+    end_number =- 1
+    if end_number == start_number:
+        return print('Finish')
+    numbers (start_numbera, end_numbers)
 
 
 if __name__ == '__main__':
-    numbers(0, 100)
+    number(0, 100)
