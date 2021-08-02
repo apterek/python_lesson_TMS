@@ -30,7 +30,7 @@ def game(players_table_score, deck):
                 print(f'Your score: {players_table_score.get(key)}')
                 break
 
-    # Players are croupier
+    # The croupier is playing
     while True:
         print(f"croupier take a cards, current score croupier:"
               f" {players_table_score.get('croupier')}")
