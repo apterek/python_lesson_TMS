@@ -7,7 +7,7 @@ def my_decorator_2(func):
     def time_counter(listing):
         start_time = time.time()  # time start function
         result = func(listing)  # start function
-        return result, time.time() - start_time - 2  # return implementations time
+        return result, time.time() - start_time - 2  # time implementations
     return time_counter
 
 
