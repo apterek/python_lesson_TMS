@@ -16,24 +16,13 @@ def move(x, y, z, t):
     step = 7
     # finding for whether the first queen can beat the second
     for i in range(7):
-        # finding queen by horizontal
-        if chessboard[x][i] == 2:
-            answer = 'YES'
-            break
-        # finding queen by verticals
-        elif chessboard[i][y] == 2:
-            answer = 'YES'
-            break
-        # finding queen by diagonals from left to right from up to down
-        elif chessboard[i][i] == 2:
-            answer = 'YES'
-            break
-        # finding queen by diagonals from right to left from down to up
-        elif chessboard[i][step] == 2:
+        # finding queen by horizontal,verticals,diagonals from left to right from up to down,
+        # diagonals from right to left from down to up
+        if chessboard[x][i] == 2 or chessboard[i][y] == 2 or chessboard[i][i] == 2\
+                or chessboard[i][i] == 2 or chessboard[i][step] == 2:
             answer = 'YES'
             break
         step -= 1
-    #
     if answer == 'YES':
         return answer
     else:
