@@ -3,8 +3,9 @@ def distance(full_distance, first_run):
     while True:
         day += 1
         full_distance -= first_run
-        first_run_2 = first_run * 0.1
+        first_run_2 = first_run * 1.1
         first_run += first_run_2
+        print(first_run)
         if full_distance <= 0:
             return print(day)
 
