@@ -4,7 +4,6 @@ import re
 def parse_sh_cdp_neighbors(file_in_one_row):
     res_dict = {}
     new_dict = {}
-    dict_3 = {}
     regex = r'(R\S) +(\S+ \d+\/\d+) +\S+ + \S+ \S+ \S+ +\S+ + (\S+ \d+\/\d+)'
     name = list(re.search(r'(\S+)>', file_in_one_row).groups())[0]
     result = [match.groups() for match in re.finditer(regex, file_in_one_row)]
