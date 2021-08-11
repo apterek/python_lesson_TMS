@@ -21,7 +21,6 @@ class Figure:
 
 
 class Circle(Figure):
-
     def __init__(self, first_point, second_point):
         super().__init__()
         self.second_point = second_point
