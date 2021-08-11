@@ -1,5 +1,4 @@
 from solution_class_01 import MyTime
-import datetime
 
 
 t1 = MyTime(2, 15, 15)
