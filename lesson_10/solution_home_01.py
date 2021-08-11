@@ -38,13 +38,15 @@ class Circle(Figure):
 class Triangle(Figure):
     def __init__(self, point_A, point_B, point_C):
         super().__init__()
-        self.first_point = point_A
-        self.second_point = point_B
-        self.side_a = self.line_length()
-        self.second_point_point = point_C
-        self.side_b = self.line_length()
-        self.first_point = point_B
-        self.side_c = self.line_length()
+        self.point_C = point_C
+        self.point_B = point_B
+        self.point_A = point_A
+        self.side_a = math.sqrt(pow(self.point_A[0] - self.point_B[0], 2) +
+                                pow(self.point_A[1] - self.point_B[1], 2))
+        self.side_b = math.sqrt(pow(self.point_B[0] - self.point_C[0], 2) +
+                                pow(self.point_B[1] - self.point_C[1], 2))
+        self.side_c = math.sqrt(pow(self.point_C[0] - self.point_A[0], 2) +
+                                pow(self.point_C[1] - self.point_A[1], 2))
 
     def area(self):
         half_per = (self.side_a + self.side_b + self.side_c) / 2
