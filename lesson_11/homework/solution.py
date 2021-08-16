@@ -18,7 +18,7 @@ def create_table(database_name: str):
             );
             """
         )
-        session.commit()
+        session.commit()  # close session
 
 
 def read_table(name_database: str):
