@@ -21,7 +21,7 @@ def create_table(database_name: str):
         session.commit()
 
 
-def read_table(name_database):
+def read_table(name_database: str):
     with sqlite3.connect(name_database) as session:
         cursor = session.cursor()
         table = cursor.execute(
@@ -34,7 +34,7 @@ def read_table(name_database):
         session.commit()
 
 
-def update_table(nickname_database, *args):
+def update_table(nickname_database: str, *args: (str, float, int, str, int)):
     with sqlite3.connect(nickname_database) as session:
         cursor = session.cursor()
         cursor.execute("""
@@ -43,7 +43,7 @@ def update_table(nickname_database, *args):
         session.commit()
 
 
-def add_data(database_nickname, *args):
+def add_data(database_nickname: str, *args: (str, float, int, str)):
     with sqlite3.connect(database_nickname) as session:
         cursor = session.cursor()
         cursor.execute("""
@@ -53,7 +53,7 @@ def add_data(database_nickname, *args):
         session.commit()
 
 
-def delete_data(database, *args):
+def delete_data(database, *args: int):
     with sqlite3.connect(database) as session:
         cursor = session.cursor()
         cursor.execute(
