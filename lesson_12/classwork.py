@@ -14,7 +14,6 @@ def create_connect_to_db():
         f"postgresql://{DB_USER}:{DB_PASSWORD}@localhost:{DB_PORT}/{DB_NAME}", echo=True
     )
     engine.connect()
-    print(engine)
     if not database_exists(engine.url):
         create_database(engine.url)
         return print('Database created')
