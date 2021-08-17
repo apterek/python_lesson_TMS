@@ -2,7 +2,6 @@ from sqlalchemy import create_engine
 from sqlalchemy_utils import create_database, database_exists
 
 
-<<<<<<< HEAD
 def create_database_first() -> bool:
     DB_USER = "postgres"
     DB_PASSWORD = "271036yY#"
@@ -17,7 +16,7 @@ def create_database_first() -> bool:
         create_database(engine.url)
         return True
     return False
-=======
+
 DB_USER = "danila"
 DB_PASSWORD = "271036yY#"
 DB_NAME = "pythondb"
@@ -38,4 +37,3 @@ def create_connect_to_db():
 
 
 create_connect_to_db()
->>>>>>> 18110eede12148a38f1359a69bb4ed843b577560
