@@ -1,9 +1,8 @@
-from sqlalchemy import Integer, String, Column, DateTime, ForeignKey, Float, Text
+from sqlalchemy import Integer, String, Column, DateTime, ForeignKey, Float
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 
 from sqlalchemy.orm import relationship
-from sqlalchemy_utils import relationships
 
 
 Base = declarative_base()
@@ -21,7 +20,7 @@ class Product(Base):
     __tablename__ = "products"
     id = Column(Integer(), primary_key=True)
     name = Column(String(200), nullable=False)
-    cost = Column(Float(), nullable=False)
+    price = Column(Float(32), nullable=False)
     purchase_product = relationship("Purchase", back_populates="products")
 
 
@@ -35,5 +34,6 @@ class Purchase(Base):
     products = relationship("Product", back_populates="purchase_product")
 
     quantity = Column(Integer(), nullable=False)
+    cost = Column(Float(), nullable=False)
     date = Column(DateTime, default=datetime.utcnow())
 
