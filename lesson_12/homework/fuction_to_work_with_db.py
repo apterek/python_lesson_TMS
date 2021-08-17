@@ -23,7 +23,7 @@ def fill_purchase_table(session, *args: (str, str, int)):
     session1 = Session()
 
     email_require = select(User).where(User.email == email_user)
-    if not session1.execute(email_require):
+    if not [res.id for res in session1.execute(email_require).scalars()]:
         add_user_table(session, email_user)
         id_user = [res.id for res in session1.execute(email_require).scalars()][0]
     else:
@@ -34,11 +34,11 @@ def fill_purchase_table(session, *args: (str, str, int)):
         return print('Something going wrong')
     else:
         id_product = [rest.id for rest in session1.execute(product_require).scalars()][0]
-        price = [rest.id for rest in session1.execute(product_require).scalars()][2]
+        price = [rest.price for rest in session1.execute(product_require).scalars()][0]
     total_cost = quntity_product * float(price)
 
-    session1.add(Purchase(user_id=id_user, product_id=id_product, quntity=quntity_product, cost=total_cost))
-
+    session1.add(Purchase(user_id=id_user, product_id=id_product, quantity=quntity_product, cost=total_cost))
+    session1.commit()
 
 def create_tables(session):
     Base.metadata.create_all(session)
