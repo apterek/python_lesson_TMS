@@ -4,7 +4,7 @@ from sqlalchemy_utils import create_database, database_exists
 
 def create_connect_to_db(user: str, password: str, db_name: str, address_db: str, port_db: int):
     engine = create_engine(
-        f"postgresql://{user}:{password}@{address_db}:{port_db}/{db_name}", echo=True
+        f"postgresql://{user}:{password}@{address_db}:{port_db}/{db_name}"
     )
     if not database_exists(engine.url):
         create_database(engine.url)

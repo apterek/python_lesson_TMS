@@ -36,4 +36,10 @@ def create_connect_to_db():
         return print('Database already exist')
 
 
-create_connect_to_db()
+test = ('asfas@mail.ru', 1, 3, 5)
+
+
+def asfd(*args):
+    print(args[0][0])
+
+asfd(test)
