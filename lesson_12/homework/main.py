@@ -15,6 +15,7 @@ Please choose one of the options:
 """
 
 
+# user interface program
 def main():
     session = create_connect_to_db('danila', '271036yY#', 'pythondb', 'localhost', 54325)
     while True:
@@ -33,6 +34,7 @@ def main():
             session1 = Session()
             add_user_table(session1, user_name)
             print("-" * 40, "\n", "-" * 13, "USER ADDED SUCCESSFULLY", "-" * 13, "\n", "-" * 40)
+            session1.commit()
         elif parameter == 4:
             email = input("Enter user email: ")
             product = input("Enter product name: ")
@@ -43,7 +45,8 @@ def main():
             mail = input("Enter user email: ")
             print(f"User with email {mail} bought:")
             for prod in user_purchases(session, mail):
-                print(prod)
+                print("---"*30,"\n", prod)
+            print("---"*30)
         else:
             return print("It's the end, good day!")
 

@@ -1,3 +1,7 @@
+# ----------------------------------------------------------------
+# This file declares which tables will be created in the database
+# ----------------------------------------------------------------
+
 from sqlalchemy import Integer, String, Column, DateTime, ForeignKey, Float
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
