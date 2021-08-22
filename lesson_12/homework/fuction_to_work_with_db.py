@@ -1,3 +1,5 @@
+from typing import List
+
 from models import Base, User, Product, Purchase
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import select
@@ -76,3 +78,6 @@ def user_purchases(session, user_email):
 def create_tables(session):
     Base.metadata.create_all(session)
 
+
+def get_user_purchases(user: User) -> List[Purchase]:
+    return user.purchase_user

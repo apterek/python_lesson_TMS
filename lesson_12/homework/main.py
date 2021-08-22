@@ -1,8 +1,8 @@
 from connection_module import create_connect_to_db
-from fuction_to_work_with_db import create_tables, fill_purchase_table, user_purchases, add_user_table
+from fuction_to_work_with_db import create_tables, fill_purchase_table, user_purchases, add_user_table, get_user_purchases
 from fill_table import fill_product_table
 from sqlalchemy.orm import sessionmaker
-
+from models import Product, User, Purchase
 
 template = """
 Please choose one of the options:
@@ -17,7 +17,7 @@ Please choose one of the options:
 
 # user interface program
 def main():
-    session = create_connect_to_db('danila', '271036yY#', 'pythondb', 'localhost', 54325)
+    session = create_connect_to_db('danila', '271036yY#', 'pythondb', 'localhost', 54322)
     while True:
         print(template)
         parameter = int(input())
@@ -52,4 +52,11 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    #main()
+    # Test request by user
+    session = create_connect_to_db('danila', '271036yY#', 'pythondb', 'localhost', 54322)
+    Session = sessionmaker(bind=session)
+    session1 = Session()
+    result = session1.query(User).filter_by(email='dani@mail.ru').first()
+    for i in get_user_purchases(user=result):
+        print(i.cost)
