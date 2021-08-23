@@ -24,3 +24,4 @@ def squares_calculation(tape):
 
 
 print(squares_calculation(solar_tape))
+print("It's the end")
