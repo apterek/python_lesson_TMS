@@ -75,4 +75,3 @@ def user_purchases(session, user_email):
 # Created table from file "models.py"
 def create_tables(session):
     Base.metadata.create_all(session)
-
