@@ -15,7 +15,7 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer(), primary_key=True)
-    email = Column(String(200), nullable=False)
+    email = Column(String(200))
 
     purchase_user = relationship("Purchase", back_populates="users")
 
@@ -23,18 +23,20 @@ class User(Base):
 class Product(Base):
     __tablename__ = "products"
     id = Column(Integer(), primary_key=True)
-    name = Column(String(200), nullable=False)
-    price = Column(Float(32), nullable=False)
+    name = Column(String(200))
+    price = Column(Float(32))
+
     purchase_product = relationship("Purchase", back_populates="products")
 
 
 class Purchase(Base):
-    __tablename__ = 'Purchase'
+    __tablename__ = 'purchase'
     id = Column(Integer(), primary_key=True)
-    user_id = Column(Integer(), ForeignKey('users.id'))
+
+    user_id = Column(Integer(), ForeignKey('users.id'), nullable=False)
     users = relationship("User", back_populates="purchase_user")
 
-    product_id = Column(Integer(), ForeignKey('products.id'))
+    product_id = Column(Integer(), ForeignKey('products.id'), nullable=False)
     products = relationship("Product", back_populates="purchase_product")
 
     quantity = Column(Integer(), nullable=False)

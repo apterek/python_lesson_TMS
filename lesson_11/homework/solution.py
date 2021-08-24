@@ -2,6 +2,18 @@ import sqlite3
 from tabulate import tabulate
 
 
+# decarator for connetc to DB
+def decarator_func(func):
+    def connect(database_name, *args):
+        with sqlite3.connect(database_name) as session:
+            cursor = session.cursor()
+            result = func(cursor, args)
+            session.commit()
+            return result
+    return connect
+
+
+@decarator_func
 def create_table(database_name: str):
     # create connection with database and return an object representing it, and create file database product.db
     with sqlite3.connect(database_name) as session:
